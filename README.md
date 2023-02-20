@@ -1,18 +1,18 @@
-# puppeteer-demo
+# Puppeteer Demo
 Price scraping is the process of using bots for illegal competitive price monitoring and tracking other valuable information related to pricing intelligence from e-commerce and travel sites.
 
-## Rentomojo website scraping details
+## Website scraping details
 
 ###### Categories:
-packages
-furniture
-Appliances
-Electronics
-Fitness
-EFH essiencials
+- packages
+- furniture
+- Appliances
+- Electronics
+- Fitness
+- WFH essiencials
 
-###### api calls 
-get the categegories
-get the details og categories
-get the specific categories
-login 
+###### Api calls 
+- get the categegories
+- get the details og categories
+- get the specific categories
+- login 
