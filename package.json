@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev ./src/index.ts",
+    "dev": "ts-node-dev ./server.ts",
     "build": "tsc",
     "start": "node dist",
     "start:scripts": "node index.js",
@@ -14,9 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^5.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "mongoose": "^6.10.0",
     "puppeteer": "^19.7.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"

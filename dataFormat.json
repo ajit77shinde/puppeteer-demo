@@ -1,0 +1,196 @@
+{
+    "priseInformation": [
+        {
+            "name": "Atticus Wooden Single Platform Bed (6x3)",
+            "amount": "₹ 339/mo"
+        },
+        {
+            "name": "Kipper Wooden Queen Bed (6x5)",
+            "amount": "₹ 809/mo"
+        },
+        {
+            "name": "Napster Metal Single Bed (6x3)",
+            "amount": "₹ 249/mo"
+        },
+        {
+            "name": "Morris Office Chair",
+            "amount": "₹ 199/mo"
+        },
+        {
+            "name": "Microwave Solo 20L",
+            "amount": "₹ 299/mo"
+        },
+        {
+            "name": "Rex 3-Seater Leather Sofa (Black)",
+            "amount": "₹ 659/mo"
+        },
+        {
+            "name": "Miller Office Chair",
+            "amount": "₹ 149/mo"
+        },
+        {
+            "name": "Stuart Study Table",
+            "amount": "₹ 149/mo"
+        },
+        {
+            "name": "Stowy 2-Door Wardrobe",
+            "amount": "₹ 389/mo"
+        },
+        {
+            "name": "Pixar TV Unit",
+            "amount": "₹ 239/mo"
+        },
+        {
+            "name": "Barney Leather Recliner (Brown)",
+            "amount": "₹ 799/mo"
+        },
+        {
+            "name": "Magnum 2-Door Wardrobe",
+            "amount": "₹ 449/mo"
+        },
+        {
+            "name": "Poise Wooden Queen Bed (6x5)",
+            "amount": "₹ 549/mo"
+        },
+        {
+            "name": "Poise Wooden King Bed (6x6)",
+            "amount": "₹ 669/mo"
+        },
+        {
+            "name": "Poise Study Table",
+            "amount": "₹ 229/mo"
+        },
+        {
+            "name": "Napster Metal Queen Bed (6x5)",
+            "amount": "₹ 319/mo"
+        },
+        {
+            "name": "Aurora Wooden Queen Bed (6x5)",
+            "amount": "₹ 539/mo"
+        },
+        {
+            "name": "Mini Fridge",
+            "amount": "₹ 479/mo"
+        },
+        {
+            "name": "Hutch 2-Door Wardrobe",
+            "amount": "₹ 419/mo"
+        },
+        {
+            "name": "Oliver 3-Seater Fabric Sofa (Blue)",
+            "amount": "₹ 559/mo"
+        },
+        {
+            "name": "Semi Automatic Washing Machine",
+            "amount": "₹ 479/mo"
+        },
+        {
+            "name": "Dell Latitude , Intel Core i5 processor , 8th Gen - ( 8 GB / 500 GB HDD / Win 10 Pro OS , 14 inch, Black)",
+            "amount": "₹ 1839/mo"
+        },
+        {
+            "name": "MacBook Pro Intel Core i5 processor , 7th Gen - ( 8 GB / 128 GB SSD / Mac High Sierra OS,13.3 inch,Space Grey )",
+            "amount": "₹ 3049/mo"
+        },
+        {
+            "name": "LED TV - 32\"",
+            "amount": "₹ 589/mo"
+        },
+        {
+            "name": "Brook Dressing Table",
+            "amount": "₹ 289/mo"
+        },
+        {
+            "name": "OnePlus 7 Pro (Mirror Gray)",
+            "amount": "₹ 1479/mo"
+        },
+        {
+            "name": "OnePlus 7 (Mirror Gray)",
+            "amount": "₹ 989/mo"
+        },
+        {
+            "name": "Inverter Air Conditioner 1 Ton",
+            "amount": "₹ 1939/mo"
+        },
+        {
+            "name": "Redmi K20 Pro (Carbon Black)",
+            "amount": "₹ 829/mo"
+        },
+        {
+            "name": "Apple iPhone 11 (Black)",
+            "amount": "₹ 1919/mo"
+        },
+        {
+            "name": "OnePlus 7T ( Frosted Silver )",
+            "amount": "₹ 1159/mo"
+        },
+        {
+            "name": "Caramel 4-Seater Coffee Table (Blue)",
+            "amount": "₹ 629/mo"
+        },
+        {
+            "name": "Almos Wooden Queen Upholstery Bed (6x5)",
+            "amount": "₹ 1259/mo"
+        },
+        {
+            "name": "Apple iPhone 11 Pro (Midnight Green)",
+            "amount": "₹ 2979/mo"
+        },
+        {
+            "name": "Single Door Fridge (190 Litre)",
+            "amount": "₹ 599/mo"
+        },
+        {
+            "name": "Smart LED TV - 32\"",
+            "amount": "₹ 849/mo"
+        },
+        {
+            "name": "Top Load Washing Machine",
+            "amount": "₹ 769/mo"
+        },
+        {
+            "name": "Air Conditioner 1 Ton",
+            "amount": "₹ 1859/mo"
+        },
+        {
+            "name": "Air Conditioner 1.5 Ton",
+            "amount": "₹ 2269/mo"
+        },
+        {
+            "name": "OnePlus 7T Pro (Haze Blue)",
+            "amount": "₹ 1639/mo"
+        },
+        {
+            "name": "Napster Metal Queen Bed (White 6x5)",
+            "amount": "₹ 489/mo"
+        },
+        {
+            "name": "Galaxy Note 10 Plus (Aura Glow)",
+            "amount": "₹ 2419/mo"
+        },
+        {
+            "name": "Apple iPhone XS (Gold)",
+            "amount": "₹ 2919/mo"
+        }
+    ],
+    "categorties": [
+        {
+            "name": "Packages"
+        },
+        {
+            "name": "Furniture"
+        },
+        {
+            "name": "Appliances"
+        },
+        {
+            "name": "Electronics"
+        },
+        {
+            "name": "Fitness"
+        },
+        {
+            "name": "WFH Essentials"
+        }
+    ]
+}

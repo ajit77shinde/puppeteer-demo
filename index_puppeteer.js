@@ -23,9 +23,11 @@ const puppeteer = require('puppeteer');
         } );
         // let amount = document.querySelector('.rm-listicle__slide span')?.innerText;
         // productsInformation.push({product_name: name, product_prise: amount});
-        // return productsInformation;
+        return productsInformation;
     });
-    console.log('end to get product details..')
+    console.log('end to get product details..');
+    console.log('Products informations:=================================================');
     console.log(priseInformation)
+    console.log('Products informations:=================================================');
     await browser.close();
 }) (); 
