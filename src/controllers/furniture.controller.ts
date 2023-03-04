@@ -1,81 +1,120 @@
-// create // findAll// findOne // update // delete // deleteAll // findAllPublished
-const dbs = require("../models");
-const Tutorial = dbs.tutorials;
+import { Request, Response } from "express";
+import puppeteer from "puppeteer";
 
-// Create and Save a new Tutorial
-exports.create = (req: { body: { title: any; description: any; published: any; }; },
-    res: {
-        status: (arg0: number) => {
-            (): any; new(): any; send: { (arg0: { message: any; }): void; new(): any; };
-        }; send: (arg0: any) => void;
-    }) => {
-    // Validate request
-    if (!req.body.title) {
-        res.status(400).send({ message: "Content can not be empty!" });
-        return;
-    }
+exports.getProductsData = async (req: Request, res: Response) => {
+    console.log('getProductsData started..');
+    const furnitureInfo: { priseInformation: object, categorties: object } = {
+        priseInformation: {},
+        categorties: {}
+    };
+    const { page, browser } = await openDashboard();
 
-    // Create a Tutorial
-    const tutorial = new Tutorial({
-        title: req.body.title,
-        description: req.body.description,
-        published: req.body.published ? req.body.published : false
+    await page.waitForSelector('.rm-listicle__slide h3');
+    console.log('started to get product details..')
+    let priseInformation = await page.evaluate(() => {
+        let productsInformation = [];
+        let nameArrayElement = Array.from(document.querySelectorAll('.rm-listicle__slide'));
+        productsInformation = nameArrayElement.map(nameObj => {
+            let name = nameObj.querySelector('h3')?.innerText;
+            let amount = nameObj.querySelector('span')?.innerText;
+            return ({
+                name,
+                amount
+            })
+        });
+        console.log('getProductsData completed..');
+        return productsInformation;
     });
+    console.log('Finished the Furniture info scraping.')
+    let categorties = await page.evaluate(() => {
+        let categoriesObj: { name: any; }[] = [];
+        let categoryElem = document.querySelector('.rm-category__home');
+        if (categoryElem !== null) {
+            let categoriesData = Array.from(categoryElem.querySelectorAll('li'));
 
-    // Save Tutorial in the database
-    tutorial
-        .save(tutorial)
-        .then((data: any) => {
-            res.send(data);
-        })
-        .catch((err: { message: any; }) => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while creating the Tutorial."
+            categoriesObj = categoriesData.map(catObj => {
+                let name = catObj?.querySelector('h3')?.innerText;
+                return ({ name: name });
             });
-        });
+        }
+        return categoriesObj;
+    });
+    console.log('Finished the category data scraping..')
+    furnitureInfo.priseInformation = priseInformation;
+    furnitureInfo.categorties = categorties;
+    res.json(furnitureInfo);
+    await browser.close();
 };
 
-// Retrieve all Tutorials from the database.
-exports.findAll = (req: { query: { title: any; }; }, 
-    res: { send: (arg0: any) => void; status: (arg0: number) => { 
-        (): any; new(): any; send: { (arg0: { message: any; }): void; new(): any; }; }; }) => {
-    const title = req.query.title;
-    var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
+exports.getAllCategories = async (req: Request, res: Response) => {
+    const furnitureInfo: { categorties: object } = {
+        categorties: {}
+    };
+    const { page, browser } = await openDashboard();
 
-    Tutorial.find(condition)
-        .then((data: any) => {
-            res.send(data);
-        })
-        .catch((err: { message: any; }) => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving tutorials."
+    let categorties = await page.evaluate(() => {
+        let categoriesObj: { name: any; }[] = [];
+        let categoryElem = document.querySelector('.rm-category__home');
+        if (categoryElem !== null) {
+            let categoriesData = Array.from(categoryElem.querySelectorAll('li'));
+
+            categoriesObj = categoriesData.map(catObj => {
+                let name = catObj?.querySelector('h3')?.innerText;
+                return ({ name: name });
             });
-        });
-};
+        }
+        return categoriesObj;
+    });
+    console.log('Finished the category data scraping..')
+    furnitureInfo.categorties = categorties;
+    res.json(furnitureInfo);
+    await browser.close();
+}
 
-// Find a single Tutorial with an id
-// exports.findOne = (req: any, res: any) => {
+exports.getCategoryDetails = async (req: Request, res: Response) => {
+    const { page, browser } = await openDashboard();
+    const category = req.params.cat;
+    console.log('request data = ', category)
+    const categoryDetails = await page.evaluate((category) => {
+        let categoriesObj;
+        let categoryElem = document.querySelector('.rm-category__home');
+        if (categoryElem !== null) {
+            let categoriesData = Array.from(categoryElem.querySelectorAll('li'));
 
-// };
+            categoriesObj = categoriesData.find(catObj => {
+                if (category === catObj?.querySelector('h3')?.innerText) {
+                    return true;
+                }
+            });
+            categoriesObj?.querySelector<HTMLAnchorElement>('a')?.click();
 
-// // Update a Tutorial by the id in the request
-// exports.update = (req: any, res: any) => {
+            const headersList = Array.from(document.querySelectorAll('h2.rm-main-head')).map((obj: any) => obj.innerText);
 
-// };
+            const packageObj = Array.from(document.querySelectorAll('.pack-box--content')).map((obj: any) => obj.innerText);
+            setTimeout(() => {
+                console.log(headersList);
+            }, 30000);
+            return { headersList, packageObj }
+        }
+    }, category);
 
-// // Delete a Tutorial with the specified id in the request
-// exports.delete = (req: any, res: any) => {
+    await browser.close();
+    res.json(categoryDetails);
+}
 
-// };
+async function openDashboard() {
+    console.log('In openDashboard Function')
+    const browser = await puppeteer.launch({ headless: false, devtools: true });
+    const page = await browser.newPage();
+    try {
+        await page.goto('https://www.rentomojo.com/mumbai');
+        await page.waitForSelector('.rm-listicle__slide h3');
+        console.log('Dashboard page open...');
+    } catch (error) {
+        console.log(`Error in Open Dashboad  function ${error}`);
+        browser.close();
+    }
+    return { page, browser };
+}
 
-// // Delete all Tutorials from the database.
-// exports.deleteAll = (req: any, res: any) => {
 
-// };
-
-// // Find all published Tutorials
-// exports.findAllPublished = (req: any, res: any) => {
-
-// };
