@@ -13,6 +13,6 @@ Price scraping is the process of using bots for illegal competitive price monito
 
 ###### Api calls 
 - get the categegories
-- get the details og categories
+- get the details of categories
 - get the specific categories
 - login 
